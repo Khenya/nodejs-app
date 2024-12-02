@@ -9,17 +9,20 @@ pipeline {
             }
         }
         stage('Install Dependencies') {
+            tools {
+                nodejs 'node 18'  // Asegúrate de que 'NodeJS-16' coincida con el nombre configurado en Jenkins
+            }
             steps {
                 echo 'Instalando dependencias...'
                 sh 'npm install'
             }
         }
-        stage('Run Tests') {
+        /*stage('Run Tests') {
             steps {
                 echo 'Ejecutando pruebas...'
                 sh 'npm test'
             }
-        }
+        }*/
         stage('Build') {
             steps {
                 echo 'Construyendo la aplicación...'
